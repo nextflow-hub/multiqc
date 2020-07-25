@@ -1,5 +1,11 @@
 #!/usr/bin/env nextflow
 
+/*
+#==============================================
+code documentation
+#==============================================
+*/
+
 
 /*
 #==============================================
@@ -25,7 +31,6 @@ process multiQC {
 
     input:
     path("""${params.fastqcResultsDir}""") from ch_in_multiqc
-
 
     output:
     tuple path("""multiqc_data"""),

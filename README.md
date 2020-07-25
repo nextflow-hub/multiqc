@@ -15,9 +15,13 @@ nextflow run https://github.com/nextflow-hub/multiqc
 
 ## Options
 
+- `fastqcResultsDir`
+
+By default, the location of `fastqc` results is assumed to be `results/fastqc`
+
 - `resultsDir`
 
-**NOTE**: By default, it stores the result files locally into `results/multiqc` directory.
+ By default, it stores the result files locally into `results` directory.
 
 
 ## Contribution
