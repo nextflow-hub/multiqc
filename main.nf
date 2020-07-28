@@ -15,6 +15,7 @@ params
 
 params.fastqcResultsDir = 'results/fastqc'
 params.resultsDir = 'results/multiqc'
+params.saveMode = 'copy'
 
 Channel.fromPath("""${params.resultsDir}""")
         .into { ch_in_multiqc }
@@ -26,7 +27,7 @@ multiqc
 */
 
 process multiQC {
-    publishDir params.resultsDir, mode: params.saveBy
+    publishDir params.resultsDir, mode: params.saveMode
     container 'quay.io/biocontainers/multiqc:1.9--pyh9f0ad1d_0'
 
     input:
