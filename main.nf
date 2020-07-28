@@ -1,9 +1,16 @@
 #!/usr/bin/env nextflow
 
 /*
-################
+#==============================================
+code documentation
+#==============================================
+*/
+
+
+/*
+#==============================================
 params
-################
+#==============================================
 */
 
 params.fastqcResultsDir = 'results/fastqc'
@@ -13,11 +20,10 @@ Channel.fromPath("""${params.resultsDir}""")
         .into { ch_in_multiqc }
 
 /*
-###############
+#==============================================
 multiqc
-###############
+#==============================================
 */
-
 
 process multiQC {
     publishDir params.resultsDir, mode: params.saveBy
@@ -25,7 +31,6 @@ process multiQC {
 
     input:
     path("""${params.fastqcResultsDir}""") from ch_in_multiqc
-
 
     output:
     tuple path("""multiqc_data"""),
@@ -39,3 +44,10 @@ process multiQC {
     """
 
 }
+
+
+/*
+#==============================================
+# extra
+#==============================================
+*/
