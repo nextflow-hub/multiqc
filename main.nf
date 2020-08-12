@@ -17,8 +17,8 @@ params.fastqcResultsDir = 'results/fastqc'
 params.resultsDir = 'results/multiqc'
 params.saveMode = 'copy'
 
-Channel.fromPath("""${params.resultsDir}""")
-        .into { ch_in_multiqc }
+Channel.fromPath("""${params.fastqcResultsDir}""")
+        .set { ch_in_multiqc }
 
 /*
 #==============================================
